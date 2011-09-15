@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Some values
 # Reprepro & inoticoming dir for logs
 # put this directory where you need
 INOTICOMINGLOG="/var/log/reprepro/inoticoming/"
