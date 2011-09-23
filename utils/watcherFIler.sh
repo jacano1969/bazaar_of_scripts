@@ -1,0 +1,32 @@
+#!/usr/bin/sh
+# This scripts waits the destruccion of 
+# a file that is passed as an argument
+# take actions after the destruccion (delete).
+
+_usage(){
+	echo "$1"
+	exit 1
+}
+
+_sanityChecks(){
+	if [ $# -lt 2 ] ; then
+		_usage "One file is needed to be watched"
+	fi
+}
+
+_watcher(){
+
+}
+
+_actions(){
+
+}
+
+# Main
+_sanityChecks "$@"
+_watcher
+_actions
+
+exit 0
+
+
