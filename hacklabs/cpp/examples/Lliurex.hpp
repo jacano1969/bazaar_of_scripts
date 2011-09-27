@@ -6,7 +6,9 @@ namespace net
 		class Lliurex
 		{
 			public:
-		
+				int x;
+				int y;
+				static int z;		
 				Lliurex();
 				~Lliurex();
 		
