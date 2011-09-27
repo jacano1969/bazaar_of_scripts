@@ -8,11 +8,13 @@ int main(int argc, char * argv[])
 	
 	array = new int[MAX_LENGTH];
 	
+	net::Lliurex::Lliurex * lx;
 	
-	net::Lliurex::Lliurex lx;
-	
+	lx = new net::Lliurex::Lliurex();
 	lx.test();
 	lx.sum(3,2);
+	
+	delete lx;
 	
 	delete array;
 	
