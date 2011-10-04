@@ -1,0 +1,7 @@
+[SETUP]
+type=python
+path=hlPluginN4d.py
+class=Hacklab
+[METHODS]
+suma=admin
+getText=anonymous
