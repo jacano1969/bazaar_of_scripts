@@ -7,13 +7,17 @@ INOTICOMINGLOG="/var/log/reprepro/inoticoming/"
 # For each Repository in 
 REPREPROBASEDIRLIST="/srv/hardy /srv/lucid "
 
-# Create directory (for if the flies)
-if [ -d "$INOTICOMINGLOG" ] ; then
-        echo "Directory created... nothing to do"
-else
+_testDirectories(){
+    # Create directory (for if the flies)
+    if [ -d "$INOTICOMINGLOG" ] ; then
+        echo "llx-pools-inoticoming : Directory created... nothing to do"  
+    else
         echo "Create directory for LOG "
         mkdir -p "$INOTICOMINGLOG"
-fi
+    fi
+}
+
+_updateRepositories(){
 
 for repo in $REPREPROBASEDIRLIST ; do
 	# This create a inoticoming process to
