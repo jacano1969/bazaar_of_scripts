@@ -18,13 +18,18 @@ _testDirectories(){
 }
 
 _updateRepositories(){
-
-for repo in $REPREPROBASEDIRLIST ; do
 	# This create a inoticoming process to
 	# keep this directory under our vigilance
 	# and call reprepro with the "default" rule
-	# especified into conf/incoming file on repositorie
-	REPONAME=$(basename $repo)
-	echo "inoticoming --logfile "$INOTICOMINGLOG$REPONAME-log" --pid-file "$INOTICOMINGLOG$REPONAME-pid" "$repo"/incoming --suffix .changes --stderr-to-log reprepro -s -b $repo  --waitforlock  1000 processincoming default {} \;"
-	inoticoming --logfile "$INOTICOMINGLOG$REPONAME-log" --pid-file "$INOTICOMINGLOG$REPONAME-pid" "$repo"/incoming --suffix .changes --stderr-to-log reprepro -s -b $repo  --waitforlock  1000 processincoming default {} \;
-done
+	# especified into conf/incoming file on repositories
+	for repo in $REPREPROBASEDIRLIST ; do
+		REPONAME=$(basename $repo)
+		inoticoming --logfile "$INOTICOMINGLOG$REPONAME-log" --pid-file "$INOTICOMINGLOG$REPONAME-pid" "$repo"/incoming --suffix .changes --stderr-to-log reprepro -s -b $repo  --waitforlock  1000 processincoming default {} \;
+	done
+}
+
+# Main
+_testDirectories
+_updateRepositories
+
+exit 0
