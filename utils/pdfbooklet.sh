@@ -6,7 +6,7 @@
 TRANSFIGURATION_DIRECTORY="$(mktemp -d /tmp/pdfbooklet.XXXXX)"
 FINAL_PDF="book_output.pdf"
 JAPAN_ORDER=""
-
+USE_THE_FORCE=""
 _sanity_checks()
 {
 	which pdftk || $(echo "pdftk seems to be not installed, please run: sudo apt-get install pdftk"; exit 1)
@@ -16,7 +16,7 @@ _sanity_checks()
 _usage()
 {
 	echo "pdfbooklet.sh --book FILE_TO_PARSE"
-	echo "pdfbooklet.sh --target FINAL_PDF.pdf [--japan-order] --png FILE1.png FILE2.png .."
+	echo "pdfbooklet.sh --target FINAL_PDF.pdf [--japan-order][--use-the-force] --png FILE1.png FILE2.png .."
 	exit 1
 }
 
@@ -38,7 +38,12 @@ _booklet()
 _process_single_image()
 {
 	echo "Processing $1"
-	convert -define png:compression-level=9 -define png:compression-filter=0 -define ps:imagemask $2 eps2:$TRANSFIGURATION_DIRECTORY/$(basename "$2").eps
+	if [ $USE_THE_FORCE = "yes" ] ; then
+		echo "using the force"
+		cp $2 $TRANSFIGURATION_DIRECTORY/
+	else
+		convert -define png:compression-level=9 -define png:compression-filter=0 -define ps:imagemask $2 eps2:$TRANSFIGURATION_DIRECTORY/$(basename "$2").eps
+	fi
 }
 
 _process_images()
@@ -55,10 +60,20 @@ _process_images()
 _process_directory()
 {
 	echo "Process transfiguration directory"
-	if [ "$JAPAN_ORDER" = "yes" ] ; then
-		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF $(ls -1 $TRANSFIGURATION_DIRECTORY/*.eps|tac)
+	
+	if [ "$USE_THE_FORCE" = "yes" ] ; then
+		if [ "$JAPAN_ORDER" = "yes" ] ; then
+        	        convert $(ls -1 $TRANSFIGURATION_DIRECTORY/*.png|tac) $FINAL_PDF
+	        else
+        	        convert $(ls -1 $TRANSFIGURATION_DIRECTORY/*.png) $FINAL_PDF
+	        fi	
 	else
-		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF "$TRANSFIGURATION_DIRECTORY"/*.eps
+	
+		if [ "$JAPAN_ORDER" = "yes" ] ; then
+			gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF $(ls -1 $TRANSFIGURATION_DIRECTORY/*.eps|tac)
+		else
+			gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF "$TRANSFIGURATION_DIRECTORY"/*.eps
+		fi
 	fi
 }
 
@@ -87,6 +102,10 @@ case "$1" in
 	shift
 	if [ "$1" = "--japan-order" ] ; then
 		JAPAN_ORDER="yes"
+		shift
+	fi
+	if [ "$1" = "--use-the-force" ] ; then
+		USE_THE_FORCE="yes"
 		shift
 	fi
 	shift
