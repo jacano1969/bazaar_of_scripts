@@ -39,7 +39,6 @@ _process_single_image()
 {
 	echo "Processing $1"
 	convert -define png:compression-level=9 -define png:compression-filter=0 -define ps:imagemask $2 eps2:$TRANSFIGURATION_DIRECTORY/$(basename "$2").eps
-	#convert $2 $TRANSFIGURATION_DIRECTORY/$(basename "$2").pdf
 }
 
 _process_images()
@@ -56,13 +55,11 @@ _process_images()
 _process_directory()
 {
 	echo "Process transfiguration directory"
-#	pdftk "$( ls $TRANSFIGURATION_DIRECTORY/*.pdf)" cat output $FINAL_PDF
 	if [ "$JAPAN_ORDER" = "yes" ] ; then
 		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF $(ls -1 $TRANSFIGURATION_DIRECTORY/*.eps|tac)
 	else
 		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF "$TRANSFIGURATION_DIRECTORY"/*.eps
 	fi
-#	vert "$TRANSFIGURATION_DIRECTORY"/*.png $FINAL_PDF
 }
 
 _clean_process()
