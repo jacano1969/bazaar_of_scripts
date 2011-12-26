@@ -5,11 +5,18 @@
 # Some temporal values
 TRANSFIGURATION_DIRECTORY="$(mktemp -d /tmp/pdfbooklet.XXXXX)"
 FINAL_PDF="book_output.pdf"
+JAPAN_ORDER=""
+
+_sanity_checks()
+{
+	which pdftk || $(echo "pdftk seems to be not installed, please run: sudo apt-get install pdftk"; exit 1)
+	which convert || $(echo "convert seems to be not installed, please run: sudo apt-get install imagemagick"; exit 1)
+}
 
 _usage()
 {
 	echo "pdfbooklet.sh --book FILE_TO_PARSE"
-	echo "pdfbooklet.sh --target FINAL_PDF.pdf --png FILE1.png FILE2.png .."
+	echo "pdfbooklet.sh --target FINAL_PDF.pdf [--japan-order] --png FILE1.png FILE2.png .."
 	exit 1
 }
 
@@ -31,7 +38,8 @@ _booklet()
 _process_single_image()
 {
 	echo "Processing $1"
-	convert $2 $TRANSFIGURATION_DIRECTORY/$1.$(basename "$2").ps
+	convert -define png:compression-level=9 -define png:compression-filter=0 -define ps:imagemask $2 eps2:$TRANSFIGURATION_DIRECTORY/$(basename "$2").eps
+	#convert $2 $TRANSFIGURATION_DIRECTORY/$(basename "$2").pdf
 }
 
 _process_images()
@@ -48,18 +56,27 @@ _process_images()
 _process_directory()
 {
 	echo "Process transfiguration directory"
-	gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF "$TRANSFIGURATION_DIRECTORY"/*.ps
+#	pdftk "$( ls $TRANSFIGURATION_DIRECTORY/*.pdf)" cat output $FINAL_PDF
+	if [ "$JAPAN_ORDER" = "yes" ] ; then
+		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF $(ls -1 $TRANSFIGURATION_DIRECTORY/*.eps|tac)
+	else
+		gs -dBATCH -dEPSFitPage -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$FINAL_PDF "$TRANSFIGURATION_DIRECTORY"/*.eps
+	fi
+#	vert "$TRANSFIGURATION_DIRECTORY"/*.png $FINAL_PDF
 }
 
 _clean_process()
 {
 	echo "Cleaning working area $TRANSFIGURATION_DIRECTORY"
-	rm -rf $TRANSFIGURATION_DIRECTORY
+	rm -rf "$TRANSFIGURATION_DIRECTORY"
 }
+
 
 if [ $#  -eq 0 ]; then 
 	_usage
 fi
+
+_sanity_checks
 
 case "$1" in
 	--book)
@@ -71,6 +88,10 @@ case "$1" in
 	shift
 	FINAL_PDF="$1"
 	shift
+	if [ "$1" = "--japan-order" ] ; then
+		JAPAN_ORDER="yes"
+		shift
+	fi
 	shift
 	_process_images $@
 	_process_directory
