@@ -7,6 +7,8 @@ TRANSFIGURATION_DIRECTORY="$(mktemp -d /tmp/pdfbooklet.XXXXX)"
 FINAL_PDF="book_output.pdf"
 JAPAN_ORDER=""
 USE_THE_FORCE=""
+DEFAULT_NUM_PAGES="-s16"
+
 _sanity_checks()
 {
 	which pdftk || $(echo "pdftk seems to be not installed, please run: sudo apt-get install pdftk"; exit 1)
@@ -15,7 +17,7 @@ _sanity_checks()
 
 _usage()
 {
-	echo "pdfbooklet.sh --book FILE_TO_PARSE"
+	echo "pdfbooklet.sh --book FILE_TO_PARSE [--num-pages NUM [8,16,24,...]]"
 	echo "pdfbooklet.sh --target FINAL_PDF.pdf [--japan-order][--use-the-force] --png FILE1.png FILE2.png .."
 	exit 1
 }
@@ -30,8 +32,13 @@ _clean_booklet()
 _booklet()
 {	
 	FILE_TO_PARSE="$1"
+	shift
+	if [ $1 = "--num-pages" ] ; then
+		shift
+		DEFAULT_NUM_PAGES="-s$1"
+	fi
 	pdftops "$FILE_TO_PARSE" "$FILE_TO_PARSE.ps"
-	psbook "$FILE_TO_PARSE.ps" | psnup -pa4 -l -2 > "$FILE_TO_PARSE.A5.ps"
+	psbook "$DEFAULT_NUM_PAGES" "$FILE_TO_PARSE.ps" | psnup -pa4 -l -2 > "$FILE_TO_PARSE.A5.ps"
 	ps2pdf "$FILE_TO_PARSE.A5.ps" "$FILE_TO_PARSE.A5.pdf"
 }
 
