@@ -14,3 +14,21 @@ l10n-tools/
 latex/
 	Build scripts, templates and other stuff to create documentation
 	and slideshows.
+	
+	
+utils/
+	Some scripts to do some tasks, for example:
+	- cafenet.sh : 
+		Update subversion repositories in a directory (ls -1) technology
+	- mencoderTools.sh
+		Mencoder recipse (WiP)
+	- pdfbooklet.sh
+		Create booklet from pdf 
+	- pypdfbooklet.py
+		pdfbooklet implementation in python
+	- watcherFiler.sh
+		tool to wait to download files and then take actions (as shutdown)
+	- xbox360ffmpeg.sh
+		this script must be incorporate at mencoderTools
+	- xboxBurner.sh
+		burn XBOX360 backups into Double layer DVD
