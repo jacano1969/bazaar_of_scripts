@@ -18,7 +18,15 @@ def tompg2(file_input,file_output,debug=False):
 		print("[DEBUG] tompg2 is invoked")
 		
 	#TODO
-	print("mencoder -idx "+file_input[0]+" -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o "+file_output+" ")
+	subprocess.call(["echo", "mencoder -idx "+file_input[0]+" -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o "+file_output+" "])
+
+def toxvidmp3(file_input,file_output,debug=False):
+	
+	if (debug):
+		print("[DEBUG] txvidmp3 is invoked")
+	
+	#TODO
+	subprocess.call(["echo", "mencoder -idx "+file_input[0]+" -ovc xvid  -oac mp3lame -xvidencopts pass=1 -o "+file_output+" "])
 
 def main():
 	
@@ -33,6 +41,9 @@ def main():
 	
 	# Parser  mpg2
 	parser.add_argument('--tompg2',help="Encoding in mpeg2video", action = 'store_true', default=False)
+	
+	# Parser xvidmp3
+	parser.add_argument('--toxvidmp3',help="Encoding in Xvidmp3", action = 'store_true', default=False)	
 	
 	# Parser arguments input
 	parser.add_argument('--input', help='Input files', nargs='+')
@@ -57,11 +68,30 @@ def main():
 				if (results.output):
 					this_output=results.output
 				else:
-					this_output=" "+results.input[0]+".mpg"
+					this_output=" "+results.input[0]+".[MPEG2].mpg"
 				
 				if(results.debug):
 					print("[DEBUG]: the output file is "+ this_output)
 				tompg2(results.input,this_output,results.debug)
+			
+			else:
+				print("[ERROR]: A input file is needed")
+				sys.exit()
+		except:
+			print("[ERROR]: An error ocurred")
+			pass
+	
+	if (results.toxvidmp3):
+		try:
+			if (results.input):
+				if (results.output):
+					this_output=results.output
+				else:
+					this_output=" "+results.input[0]+".[XVID][MP3].avi"
+				
+				if(results.debug):
+					print("[DEBUG]: the output file is "+ this_output)
+				toxvidmp3(results.input,this_output,results.debug)
 			
 			else:
 				print("[ERROR]: A input file is needed")
