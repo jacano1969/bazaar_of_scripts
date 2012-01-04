@@ -20,8 +20,14 @@ utils/
 	Some scripts to do some tasks, for example:
 	- cafenet.sh : 
 		Update subversion repositories in a directory (ls -1) technology
-	- mencoderTools.sh
-		Mencoder recipse (WiP)
+	- mencoderTools.py
+		Mencoder recipe:
+			- This support 2 modes (for now)
+				-toxvidmp3 : xvid and mp3 (video and audio codecs).
+				-toh264 : High Quality format
+		
+		- mencoderTools.sh is a legacy script, i keep it at repository only for 
+		  legacy recipes
 	- pdfbooklet.sh
 		Create booklet from pdf 
 	- pypdfbooklet.py
