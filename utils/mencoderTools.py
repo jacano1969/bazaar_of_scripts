@@ -18,7 +18,7 @@ def tompg2(file_input,file_output,debug=False):
 		print("[DEBUG] tompg2 is invoked")
 		
 	#TODO
-	subprocess.call(["echo", "mencoder -idx "+file_input[0]+" -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o "+file_output+" "])
+	subprocess.call(["mencoder"," -idx "+file_input[0]+" -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o "+file_output+" "])
 
 def toxvidmp3(file_input,file_output,debug=False):
 	
@@ -26,7 +26,7 @@ def toxvidmp3(file_input,file_output,debug=False):
 		print("[DEBUG] txvidmp3 is invoked")
 	
 	#TODO
-	subprocess.call(["echo", "mencoder -idx "+file_input[0]+" -ovc xvid  -oac mp3lame -xvidencopts pass=1 -o "+file_output+" "])
+	subprocess.call(["mencoder"," -idx "+file_input[0]+" -ovc xvid  -oac mp3lame -xvidencopts pass=1 -o "+file_output+" "])
 
 def main():
 	
