@@ -2,8 +2,10 @@
 
 # This script is licensed under GPL v3 or higher.
 # mencoder -idx $1 -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o $1.mpg
-# You must install mencoder
+# You must install mencoder x264
 #mencoder $1 -ovc xvid -oac mp3lame -xvidencopts pass=1 -o $1.avi
+#   
+#   mencoder dbz -o test -ovc x264 -oac mp3lame
 
 import sys
 import argparse
@@ -12,21 +14,19 @@ import os
 import types
 
 
-def tompg2(file_input,file_output,debug=False):
+def toh264(file_input,file_output,debug=False):
 	
 	if (debug):
-		print("[DEBUG] tompg2 is invoked")
+		print("[DEBUG] toh264 is invoked")
 		
-	#TODO
-	subprocess.call(["mencoder"," -idx "+file_input[0]+" -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o "+file_output+" "])
+	subprocess.call(["mencoder",file_input[0],"-ovc","x264","-oac","mp3lame","-o",file_output])
 
 def toxvidmp3(file_input,file_output,debug=False):
 	
 	if (debug):
-		print("[DEBUG] txvidmp3 is invoked")
-	
-	#TODO
-	subprocess.call(["mencoder"," -idx "+file_input[0]+" -ovc xvid  -oac mp3lame -xvidencopts pass=1 -o "+file_output+" "])
+		print("[DEBUG] txvidmp3 is invoked with input:" + file_input[0]+" output:"+file_output)
+
+	subprocess.call (["mencoder","-idx",file_input[0],"-ovc","xvid","-oac","mp3lame","-xvidencopts","pass=1","-o",file_output])
 
 def main():
 	
@@ -40,7 +40,7 @@ def main():
 	parser.add_argument('--debug', help='Show debug messages', action='store_true', default=False)
 	
 	# Parser  mpg2
-	parser.add_argument('--tompg2',help="Encoding in mpeg2video", action = 'store_true', default=False)
+	parser.add_argument('--toh264',help="Encoding in h264", action = 'store_true', default=False)
 	
 	# Parser xvidmp3
 	parser.add_argument('--toxvidmp3',help="Encoding in Xvidmp3", action = 'store_true', default=False)	
@@ -62,42 +62,43 @@ def main():
 	if (results.debug):
 		print("[DEBUG] Debug is enabled")
 		
-	if (results.tompg2):
+	if (results.toh264):
 		try:
 			if (results.input):
 				if (results.output):
-					this_output=results.output
+					this_output=results.output[0]	
 				else:
 					this_output=" "+results.input[0]+".[MPEG2].mpg"
 				
 				if(results.debug):
 					print("[DEBUG]: the output file is "+ this_output)
-				tompg2(results.input,this_output,results.debug)
+				toh264(results.input,this_output,results.debug)
 			
 			else:
 				print("[ERROR]: A input file is needed")
 				sys.exit()
-		except:
-			print("[ERROR]: An error ocurred")
+		except Exception as e:
+			print(e)
 			pass
 	
 	if (results.toxvidmp3):
 		try:
 			if (results.input):
 				if (results.output):
-					this_output=results.output
+					this_output=results.output[0]
 				else:
 					this_output=" "+results.input[0]+".[XVID][MP3].avi"
 				
 				if(results.debug):
 					print("[DEBUG]: the output file is "+ this_output)
+					
 				toxvidmp3(results.input,this_output,results.debug)
 			
 			else:
 				print("[ERROR]: A input file is needed")
 				sys.exit()
-		except:
-			print("[ERROR]: An error ocurred")
+		except Exception as e:
+			print(e)
 			pass
 	
 
