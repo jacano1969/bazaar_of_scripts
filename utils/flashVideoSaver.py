@@ -8,13 +8,17 @@ import argparse
 import subprocess
 import os
 import types
+import ptrace
 
 def list_videos(debug=False):
 	
-	if (debug)
+	if (debug):
 		print("[DEBUG] List Videos")
 	
-	
+	my_processes=subprocess.call (["ps","-aux"])
+	for my_process in myprocesses:
+		
+
 
 
 def main():
@@ -41,7 +45,7 @@ def main():
 		print("[DEBUG] Debug is enabled")
 		
 	if (results.list):
-		list_videos(debug)
+		list_videos(results.debug)
 
 
 if __name__== "__main__":
