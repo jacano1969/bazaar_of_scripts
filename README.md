@@ -1,3 +1,6 @@
+bazaar of scripts
+===================
+
 Bazaar of Scripts is a place for all scripts that can be useful for
 a linux distribution.
 
