@@ -1,0 +1,13 @@
+Source: bazaar-of-scripts
+Section: x11
+Priority: extra
+Maintainer: Angel Berlanas Vicente <angel.berlanas@gmail.com>
+Build-Depends: debhelper (>= 7), cdbs
+Standards-Version: 3.8.4
+
+Package: bazaar-of-scripts
+Architecture: any
+Depends: ${misc:Depends},${shlibs:Depends}
+Description: Some utilities for me
+ This is a simple package that contains some scripts useful for me.
+
