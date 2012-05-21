@@ -19,28 +19,30 @@ latex/
 	and slideshows.
 	
 	
-utils/
-	Some scripts to do some tasks, for example:
-	- cafenet.sh : 
-		Update subversion repositories in a directory (ls -1) technology
-	- mencoderTools.py
-		Mencoder recipe:
-			- This support 2 modes (for now)
-				-toxvidmp3 : xvid and mp3 (video and audio codecs).
-				-toh264 : High Quality format
-		
-		- mencoderTools.sh is a legacy script, i keep it at repository only for 
-		  legacy recipes
-	- pdfbooklet.sh
-		Create booklet from pdf 
-	- pypdfbooklet.py
-		pdfbooklet implementation in python
-	- watcherFiler.sh
-		tool to wait to download files and then take actions (as shutdown)
-	- xbox360ffmpeg.sh
-		this script must be incorporate at mencoderTools
-	- xboxBurner.sh
-		burn XBOX360 backups into Double layer DVD
-	- flashVideoSaver.py
-		Simple script to store Flash videos from Internet Cache.
+* utils
+	* baz-bookletpdf
+		* Create booklet from pdf 
+	* baz-cafenet
+		* Update subversion repositories in a directory (ls -1) technology
+	* baz-flashvideo-saver
+		* Simple script to store Flash videos from Internet Cache.
+	* baz-l10n-removeduplicated
+	* baz-l10n-translation-test
+	* baz-mencodertools
+		* Mencoder recipe:
+			* This support 2 modes (for now)
+				* toxvidmp3 : xvid and mp3 (video and audio codecs).
+				* toh264 : High Quality format
+	* baz-mencodertools-bash
+	* baz-watcher-of-file
+		* Tool to wait to download files and then take actions (as shutdown)
+	* baz-xbox-burner
+		* Burn XBOX360 backups into Double layer DVD
+
+
+TODO
+===================
+
+xbox360ffmpeg.sh
+	this script must be incorporate at mencoderTools
 	
