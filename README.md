@@ -33,11 +33,13 @@ utils
 	Simple script to store Flash videos from Internet Cache.
 * baz-l10n-removeduplicated
 * baz-l10n-translation-test
-* baz-mencodertools
-	Mencoder recipe:
-	* This support 2 modes (for now)
+* baz-mencodertools : _a simple Mencoder recipe_:
+
+	This support 2 modes (for now)
+
 		1 toxvidmp3 : xvid and mp3 (video and audio codecs).
 		2 toh264 : High Quality format
+
 * baz-mencodertools-bash
 * baz-watcher-of-file
 	Tool to wait to download files and then take actions (as shutdown)
