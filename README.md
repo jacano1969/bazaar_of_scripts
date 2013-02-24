@@ -7,14 +7,17 @@ a linux distribution.
 Some usefull description can be found here...if you are lucky!
 
 
-l10n-tools/
-	Is a directory for some usefull scripts that can be use to 
-	manage text files (as .po).
+l10n-tools
+----------
+
+Is a directory for some usefull scripts that can be use to 
+manage text files (as .po).
 	
-	- searchDuplicatedLines.py :  Self-descriptive Name.
+  searchDuplicatedLines.py :  Self-descriptive Name.
 	
 	
-latex/
+latex
+-----
 	Build scripts, templates and other stuff to create documentation
 	and slideshows.
 	
