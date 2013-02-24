@@ -18,29 +18,31 @@ manage text files (as .po).
 	
 latex
 -----
-	Build scripts, templates and other stuff to create documentation
-	and slideshows.
+Build scripts, templates and other stuff to create documentation
+and slideshows.
 	
 	
-* utils
-	* baz-bookletpdf
-		* Create booklet from pdf 
-	* baz-cafenet
-		* Update subversion repositories in a directory (ls -1) technology
-	* baz-flashvideo-saver
-		* Simple script to store Flash videos from Internet Cache.
-	* baz-l10n-removeduplicated
-	* baz-l10n-translation-test
-	* baz-mencodertools
-		* Mencoder recipe:
-			* This support 2 modes (for now)
-				* toxvidmp3 : xvid and mp3 (video and audio codecs).
-				* toh264 : High Quality format
-	* baz-mencodertools-bash
-	* baz-watcher-of-file
-		* Tool to wait to download files and then take actions (as shutdown)
-	* baz-xbox-burner
-		* Burn XBOX360 backups into Double layer DVD
+utils
+-----
+
+* baz-bookletpdf
+	Create booklet from pdf 
+* baz-cafenet
+	Update subversion repositories in a directory (ls -1) technology
+* baz-flashvideo-saver
+	Simple script to store Flash videos from Internet Cache.
+* baz-l10n-removeduplicated
+* baz-l10n-translation-test
+* baz-mencodertools
+	Mencoder recipe:
+	* This support 2 modes (for now)
+		1 toxvidmp3 : xvid and mp3 (video and audio codecs).
+		2 toh264 : High Quality format
+* baz-mencodertools-bash
+* baz-watcher-of-file
+	Tool to wait to download files and then take actions (as shutdown)
+* baz-xbox-burner
+	Burn XBOX360 backups into Double layer DVD
 
 
 TODO
