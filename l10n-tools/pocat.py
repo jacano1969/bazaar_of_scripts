@@ -2,6 +2,10 @@
 #
 # This script is licensed under GPL v3
 # or higher.
+#
+# Author: Angel Berlanas Vicente 
+# 	  <angel.berlanas@gmail.com>
+#
 
 import sys
 import potools
