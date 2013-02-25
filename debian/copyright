@@ -2,7 +2,7 @@ Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=re
 Upstream-Name: bazaar-of-scripts
 
 Files: *
-Copyright: Copyright 2012
+Copyright: Copyright 2013
  Angel Berlanas Vicente <angel.berlanas@gmail.com>
 
 License: GPL-3+
