@@ -6,6 +6,7 @@
 # Author: Angel Berlanas Vicente 
 # 	  <angel.berlanas@gmail.com>
 #
+# -*- coding: utf8 -*-
 
 import sys
 import potools
