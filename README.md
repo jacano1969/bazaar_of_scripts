@@ -1,51 +1,79 @@
-python-potools
-==============
+Python Library Documentation: module potools
 
-python-potools
+# __NAME__
 
-Functions
-=========
-**append_compendium**(compendium, appendfile, outputfile)
-    Returns a outputfile as a union po
+potools
 
-**compare_langpack**(inputdir, otherdir)
-    Returns a differences between two directories
+# __CLASSES__
 
-create_compendium(compendiumdir, outputfile)
-    Returns a outputfile as a compendium po
+builtins.object
+    Bcolors
 
-debug_msg(msg)
-    Print debug messages with fancy colours
+#### Bcolors
+__Bcolors__ = <class 'potools.Bcolors'>
 
-empty_po(inputfile)
-    empty_po empty all entries at inputfile
+# __FUNCTIONS__
 
-error_msg(msg)
-    Print error messages with fancy colours
+#### def __append_compendium__(compendium, appendfile, outputfile):
 
-info_msg(msg)
-    Print info messages with fancy colours
+Returns a outputfile as a union po
 
-lowerator(inputfile, outputfile)
-    Returns a outputfile with all msgid and msgstr with lowercase
+#### def __compare_langpack__(inputdir, otherdir):
 
-search_duplicates(duplicatedfiles, pooutput=False, logoutput=False)
+Returns a differences between two directories
 
-set_metadata_pilarized(pofile)
-    Set the metada at custom Translator
+#### def __create_compendium__(compendiumdir, outputfile):
 
-simple_po_creation(outputfile)
-    Function create a empty po, with a example `metadata`
-    :param outputfile: Path to new po.
+Returns a outputfile as a compendium po
 
-test_duplicates(inputfile)
-    return the duplicates entries at a given po
+#### def __debug_msg__(msg):
 
-test_metadata(pofile)
-    Return the metadata and Last-Translator field
+Print debug messages with fancy colours
 
-union_po(inputfile1, inputfile2, outputfile)
-    Returns a po at outputfile that is the union of two arguments inputfile1 & 2
-    inputfile1 -- Path to new po
-    inputfile2 -- Path to new po
-    outputfile -- Path to new po
+#### def __empty_po__(inputfile):
+
+empty_po empty all entries at inputfile
+
+#### def __error_msg__(msg):
+
+Print error messages with fancy colours
+
+#### def __info_msg__(msg):
+
+Print info messages with fancy colours
+
+#### def __lowerator__(inputfile, outputfile):
+
+Returns a outputfile with all msgid and msgstr with lowercase
+
+#### def __search_duplicates__(duplicatedfiles, pooutput=False, logoutput=False):
+
+
+#### def __set_metadata_pilarized__(pofile):
+
+Set the metada at custom Translator
+
+#### def __simple_po_creation__(outputfile):
+
+Function create a empty po, with a example `metadata`
+:param outputfile: Path to new po.
+
+#### def __test_duplicates__(inputfile):
+
+return the duplicates entries at a given po
+
+#### def __test_metadata__(pofile):
+
+Return the metadata and Last-Translator field
+
+#### def __union_po__(inputfile1, inputfile2, outputfile):
+
+Returns a po at outputfile that is the union of two arguments inputfile1 & 2
+inputfile1 -- Path to new po
+inputfile2 -- Path to new po
+outputfile -- Path to new po
+
+# __FILE__
+
+/usr/lib/python3/dist-packages/potools.py
+
