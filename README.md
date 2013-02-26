@@ -23,19 +23,19 @@ Returns a outputfile as a union po
 
 Returns a differences between two directories
 
-#### def __create_compendium__(compendiumdir, outputfile):
+#### def __create\_compendium__(compendiumdir, outputfile):
 
 Returns a outputfile as a compendium po
 
-#### def __debug_msg__(msg):
+#### def __debug\_msg__(msg):
 
 Print debug messages with fancy colours
 
 #### def __empty\_po__(inputfile):
 
-empty_po empty all entries at inputfile
+empty\_po empty all entries at inputfile
 
-#### def __error_msg__(msg):
+#### def __error\_msg__(msg):
 
 Print error messages with fancy colours
 
