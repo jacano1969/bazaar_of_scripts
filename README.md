@@ -10,7 +10,8 @@ builtins.object
     Bcolors
 
 #### Bcolors
-__Bcolors__ = <class 'potools.Bcolors'>
+__Bcolors__ = 
+	\<class 'potools.Bcolors'\>
 
 # __FUNCTIONS__
 
