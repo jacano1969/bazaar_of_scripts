@@ -1,10 +1,15 @@
 #!/usr/bin/env python
+#
+# This script is licensed under GPL v3 
+# Author: Angel Berlanas Vicente
+#	 <angel.berlanas@gmail.com>
+#
+# -*- coding: utf8 -*-
 
 import polib
 import sys
 import getopt
 import potools
-
 
 class Bcolors:
 	"""
