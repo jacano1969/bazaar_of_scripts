@@ -79,9 +79,7 @@ def main(argv):
 	try:
 		opts, args = getopt.getopt(argv,"hi:a:",["ifile=","afile="])
 		if len(opts) == 0 :
-			print(debug_msg(" Ni idea tienes ..."))
-			print(debug_msg(" traduce.py -i TRANSLATE ..."))
-			print(debug_msg(" traduce.py -a APPEND TO poto.po ..."))
+			usage()
 		for opt, arg in opts:
 			if opt == '-h':
 				usage()
@@ -100,3 +98,4 @@ def main(argv):
 if __name__ == "__main__":
 	
 	main(sys.argv[1:])
+
