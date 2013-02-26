@@ -1,0 +1,27 @@
+Source: python-potools
+Section: python
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Uploaders: Angel Berlanas Vicente <angel.berlanas@gmail.com>, Raul Rodrigo Segura <lliurex_devel3@edu.gva.es>, Alfons Lloret Sananton <lliurex_devel5@edu.gva.es>, Enrique Medina Gremaldos <lliurex_devel4@edu.gva.es>, David Montalva Furio <dmontalf@gmail.com>, Héctor García Huerta <lliurex_devel1@edu.gva.es>, Jose Carlos Garcia Monsalvez <garcia_josmon@gva.es>, Jaime Munyoz Fayos <munyoz_jaifay@gva.es>, Miguel Garcia Gomez <garcia_miggom@gva.es>, José Alfredo Múrcia Andrés <joamuran@gmail.com>
+Build-Depends: debhelper (>= 8), python-all (>= 2.6.6-3), python3-all, python-sphinx (>= 1.0.7+dfsg)
+Standards-Version: 3.9.3
+
+Package: python-potools
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-polib
+Description: Python library to parse and manage gettext catalogs
+ polib and company you to manipulate, create, modify gettext files
+ (pot, po and mo files). You can load existing files, iterate
+ through it's entries, add, modify entries, comments or metadata,
+ etc... or create new po files from scratch.
+
+Package: python3-potools
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, python3-polib
+Description: Python 3 library to parse and manage gettext catalogs
+ polib and company you to manipulate, create, modify gettext files
+ (pot, po and mo files). You can load existing files, iterate
+ through it's entries, add, modify entries, comments or metadata,
+ etc... or create new po files from scratch.
+ .
+ This package provides Python 3 library.
