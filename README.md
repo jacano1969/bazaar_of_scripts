@@ -15,11 +15,11 @@ __Bcolors__ =
 
 # __FUNCTIONS__
 
-#### def __append_compendium__(compendium, appendfile, outputfile):
+#### def __append\_compendium__(compendium, appendfile, outputfile):
 
 Returns a outputfile as a union po
 
-#### def __compare_langpack__(inputdir, otherdir):
+#### def __compare\_langpack__(inputdir, otherdir):
 
 Returns a differences between two directories
 
@@ -31,7 +31,7 @@ Returns a outputfile as a compendium po
 
 Print debug messages with fancy colours
 
-#### def __empty_po__(inputfile):
+#### def __empty\_po__(inputfile):
 
 empty_po empty all entries at inputfile
 
