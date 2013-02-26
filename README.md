@@ -66,14 +66,10 @@ return the duplicates entries at a given po
 
 Return the metadata and Last-Translator field
 
-#### def __union_po__(inputfile1, inputfile2, outputfile):
+#### def __union\_po__(inputfile1, inputfile2, outputfile):
 
 Returns a po at outputfile that is the union of two arguments inputfile1 & 2
-inputfile1 -- Path to new po
-inputfile2 -- Path to new po
-outputfile -- Path to new po
-
-# __FILE__
-
-/usr/lib/python3/dist-packages/potools.py
+	inputfile1 -- Path to new po
+	inputfile2 -- Path to new po
+	outputfile -- Path to new po
 
