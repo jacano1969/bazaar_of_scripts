@@ -1,6 +1,13 @@
- 
+#!/usr/bin/python3
+#
+# Simple script to generate documentation
+# for a Python Library
+# 
+
 import markdowndoc
 import pydoc
+
+# Is possible that you want change this object
 import potools
 
 pydoc.text = markdowndoc.MarkdownDoc()
