@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Author: Hector Garcia Huerta <lliurex_devel1@edu.gva.es>
 # Licensed under GPL v3 or higher
-
+#
 # -*- coding: utf8 -*-
 
 import threading
