@@ -11,22 +11,22 @@
 import sys
 import potools
 
-potools.debug_msg("Starting")
 
 if len(sys.argv) > 3:
-	compendium_path = sys.argv[1]
-	orig_path = sys.argv[2]
-	dest_path = sys.argv[3]
-	potools.debug_msg("Tenemos los argumentos")
+  potools.debug_msg("Starting")
+  compendium_path = sys.argv[1]
+  orig_path = sys.argv[2]
+  dest_path = sys.argv[3]
+  potools.debug_msg("Tenemos los argumentos")
 
 else:
-	print("faltan parametros")
-	print("File1.po File2.po File_dest.po")
-	sys.exit(0)
+  print("[USAGE]")
+  print("File1.po File2.po File_dest.po")
+  sys.exit(0)
 
-potools.debug_msg("Creamos el po destino")
+potools.debug_msg("Make destination PO")
 potools.simple_po_creation(dest_path)
-potools.debug_msg("Unimos el po")
+potools.debug_msg("Merge the pos")
 potools.union_po(compendium_path,orig_path, dest_path)
-potools.debug_msg("Comprobamos duplicados")
+potools.debug_msg("Checking duplicates")
 potools.test_duplicates(dest_path)
