@@ -1,0 +1,15 @@
+#!/bin/bash
+# This script is licensed under GPL v3 
+
+
+for d in $(ls -1); do
+  if [ -d "$d" ] ; then
+    cd $d
+    if [ -e .git ] ; then
+      echo "[ UPDATE ] : [ $d ]"  
+      git pull
+    fi
+    cd ..
+  fi 
+done
+exit 0
