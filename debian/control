@@ -2,7 +2,7 @@ Source: bazaar-of-scripts
 Section: x11
 Priority: extra
 Maintainer: Angel Berlanas Vicente <angel.berlanas@gmail.com>
-Build-Depends: debhelper (>= 7), cdbs
+Build-Depends: debhelper (>= 7)
 Standards-Version: 3.8.4
 
 Package: bazaar-of-scripts
