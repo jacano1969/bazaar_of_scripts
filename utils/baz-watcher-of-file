@@ -1,4 +1,4 @@
-#!/usr/sh
+#!/bin/sh
 # This scripts waits the destruccion of 
 # a file that is passed as an argument
 # take actions after the destruccion (delete).
