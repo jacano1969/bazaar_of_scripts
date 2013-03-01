@@ -7,7 +7,7 @@ Standards-Version: 3.9.3
 
 Package: bazaar-of-scripts
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends}
+Depends: ${misc:Depends},${shlibs:Depends}, ${python:Depends}
 Description: Some utilities.
  This is a simple package that contains some scripts useful for 
  people who loves the command line.
