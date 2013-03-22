@@ -53,12 +53,19 @@ sync_the_world()
   
   # First update the directory
   log_message "svn up for $svndir/$dirname"
-  svn up $svndir/$dirname
-  
+  cd $svndir/$dirname/trunk/ 
+  svn up 
+  svn_version = "$(dpkg-parsechangelog | grep Version | cut -d " " -f2)"
+  cd -
+
+  # Now Git
   log_message "git pull for $gitdir/$dirname"
   cd $gitdir/$dirname
   git pull
+  git_version = "$(dpkg-parsechangelog | grep Version | cut -d " " -f2)"
   cd -
+
+  dpkg --compare-versions $svn_version gt $git_version || log_message "Subversion is more updated than github for : $dirname"
   
 }
 
