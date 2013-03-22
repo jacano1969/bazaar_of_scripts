@@ -29,5 +29,47 @@ customize_values_by_hostname()
   fi
 }
 
+get_the_directories()
+{
+  # list the directories that are in 
+  # github and subversion
+  svnlist="$(mktemp /tmp/baz_git_sync.XXXX)"
+  gitlist="$(mktemp /tmp/baz_git_sync.XXXX)"
+  
+  ls -1 "$svndir" >> "$svnlist"
+  
+  ls -1 "$gitdir" >> "$gitlist"
+
+  combine $gitlist and $svnlist 
+
+  # Remove temp files
+  rm "$svnlist" "$gitlist"
+}
+
+sync_the_world()
+{
+  # Sync the world
+  dirname="$1"
+  
+  # First update the directory
+  log_message "svn up for $svndir/$dirname"
+  svn up $svndir/$dirname
+  
+  log_message "git pull for $gitdir/$dirname"
+  cd $gitdir/$dirname
+  git pull
+  cd -
+  
+}
+
+
+# Main script
+
 log_message "Who am I?"
 customize_values_by_hostname
+for d in `get_the_directories` ; do
+  sync_the_world $d
+done
+
+
+
