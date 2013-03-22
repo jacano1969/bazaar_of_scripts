@@ -19,6 +19,15 @@ log_message()
   echo "[ Git <=> Svn ] : $1"
 }
 
+customize_values_by_hostname()
+{
+  # Get the hostname
+  if [ $(hostname) = "$host" ] ; then
+    log_message "The host is : $host"
+    log_message "The subversion is : $svndir"
+    log_message "The github is : $gitdir"
+  fi
+}
 
 log_message "Who am I?"
-
+customize_values_by_hostname
