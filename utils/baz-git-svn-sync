@@ -1,0 +1,16 @@
+#!/bin/bash
+# This script is licensed under GPL V3 or higher
+#
+# Author: Angel Berlanas Vicente
+#         angel.berlanas@gmail.com   
+#
+#
+
+# Some values
+
+host="eddie"
+svndir="$HOME/svn/pandora/"
+gitdir="$HOME/github/"
+
+
+
