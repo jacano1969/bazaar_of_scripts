@@ -13,4 +13,12 @@ svndir="$HOME/svn/pandora/"
 gitdir="$HOME/github/"
 
 
+log_message()
+{
+  # Show log messages at fancy colours
+  echo "[ Git <=> Svn ] : $1"
+}
+
+
+log_message "Who am I?"
 
